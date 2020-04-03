@@ -2,7 +2,7 @@
 
 mkdir -p testrun
 rm -f testrun/*
-python3 ../gu.py -n -1 testdata/mSample.gff -2 testdata/iSample.gff  -l LOG -d testrun
+../gu -n -1 testdata/mSample.gff -2 testdata/iSample.gff  -l LOG -d testrun
 
 # should print 0
 diff expected testrun | wc -l 
