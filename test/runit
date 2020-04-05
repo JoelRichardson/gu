@@ -1,9 +1,21 @@
 #!/bin/sh
 
+echo "Running self test."
+
 mkdir -p testrun
 rm -f testrun/*
 ../gu -n -1 testdata/mSample.gff -2 testdata/iSample.gff  -l LOG -d testrun
 
-# should print 0
-diff expected testrun | wc -l 
+if [ $? != '0' ] ; then
+    echo "GU returned error."
+    exit 1
+fi
 
+# should print 0
+RESULT=`diff expected testrun | wc -l`
+if [ $RESULT = '0' ] ; then
+    echo 'Success'
+else
+    echo 'Diff returned non zero result.'
+fi
+exit $RESULT

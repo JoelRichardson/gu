@@ -375,10 +375,6 @@ class GUPipeline :
                 "-o", overlaps,
                 ]
             novl = self.execStep(TF, args)
-            #self.debug("FJ out: " + xxx)
-            #self.debug("TF out: " + overlaps)
-            #os.system("diff %s %s" %(xxx,overlaps))
-
 
         if novl == 0:
             self.debug("No overlapping features detected.\n")
